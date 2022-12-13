@@ -26,6 +26,13 @@ hazelcast:
         enabled: true
 ```
 3. Use annotation `@Cache("<cache name>")` on the function which should be cached.
+```
+Example:
+@Cacheable("books")
+public String getBookNameByIsbn(String isbn) {
+    return findBookInSlowSource(isbn);
+}
+```
 4. Use curl to test the function on current project:
 ```
 ~ curl http://localhost:8080/book/12345
